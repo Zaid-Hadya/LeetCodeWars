@@ -33,8 +33,28 @@ class ContainsDuplicate {
     }
     return arr;
   };
+
+  // Using the filter() and indexOf() method solution. [1 , 2 ,1, 5] i = 0
+  hasDuplicate2(nums) {
+    const duplicates = nums.filter(
+      (item, index) => nums.indexOf(item) === index
+    );
+  }
+
+  // Set object with Has method solution.
+  hasDuplicate3(nums) {
+    const unique = new Set();
+    const duplicates = [];
+    let i = 0;
+    while (i < nums.length) {
+      if (!unique.has(nums[i])) unique.add(nums[i]);
+      else duplicates.push(nums[i]);
+      i++;
+    }
+    return duplicates;
+  }
 }
 
 // for testing the code
 // const obj1 = new ContainsDuplicate();
-// console.log(obj1.hasDuplicate1([1, 3]));
+// console.log(obj1.hasDuplicate3([1, 3]));
