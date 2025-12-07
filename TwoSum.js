@@ -17,4 +17,18 @@ class Solution {
     }
     return nums;
   }
+
+  twoSum1(nums, target) {
+    const hash = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+      const compl = target - nums[i];
+
+      if (hash.has(compl)) {
+        return [hash.get(compl), i];
+      }
+
+      hash.set(nums[i], i);
+    }
+  }
 }
